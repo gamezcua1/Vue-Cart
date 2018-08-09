@@ -1,10 +1,11 @@
-<template id="product">
-  <div class="media product">
-    <img class="mr-3 img-fluid align-self-center" width="100" :src="product.product.photoURL" alt="Generic placeholder image" >
-    <div class="media-body">
-      <h5 class="mt-0"> Name: {{product.product.name}}</h5>
-      <h6>Cost: {{ product.product.cost}}</h6>
-      <h6>Existence: {{ product.product.existence}}</h6>
+<template>
+  <div  class="col-md-4">
+    <div class="card" style="max-width: 18rem;">
+      <img class="card-img-top" :src="product.product.photoURL" alt="product image">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.product.name }}</h5>
+        <router-link :to="{ name: 'product', params: { id: product.product.id }}" class="btn btn-primary">Full product</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -12,15 +13,13 @@
 <script>
 export default {
   props: {
-    product: Object
-  }
+    product: Object,
+  },
 }
 </script>
 
 <style>
-  .product{
-    border-color: rgb(128, 43, 43);
-    border-width: 3px;
-    margin: 10px;
-  }
+#product{
+  margin: 100px;
+}
 </style>

@@ -1,10 +1,18 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{name: 'home'}">Home</router-link> |
-      <router-link :to="{ name: 'create-product' }">Create Product</router-link>
+      <router-link :to="{ name: 'home' }">Home</router-link> |
+      <router-link :to="{ name: 'create-product' }">Create Product</router-link> |
+      <router-link :to="{ name: 'cart' }">My Cart</router-link>
     </div>
-    <router-view/>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <router-view/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,11 +21,12 @@
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 #nav {
   padding: 30px;
+  margin-right: 10%;
+  text-align: right;
 }
 
 #nav a {
