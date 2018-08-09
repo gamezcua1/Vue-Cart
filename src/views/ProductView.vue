@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted: function(){
-    this.product = this.bdd[Object.keys(this.bdd)[this.id-1]]
+    this.product = this.bdd[this.id-1] 
   },
   methods: {
     ...mapActions(['addToCart'])

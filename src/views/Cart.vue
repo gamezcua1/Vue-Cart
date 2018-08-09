@@ -20,7 +20,7 @@
       <tr>
         <td></td>
         <td><td>
-        <td>Total: ${{ sumOfCart }}</td>
+        <td class="bg-success">Total:  ${{ sumOfCart }}</td>
       </tr>
     </tbody>
   </table>
