@@ -32,7 +32,7 @@ export default new Vuex.Store({
         photoURL: "https://upload.wikimedia.org/wikipedia/commons/7/70/Chocolate_%28blue_background%29.jpg"
       }
     ],
-    cart: []
+    cart: [],
   },
 
   //Mutations
@@ -40,9 +40,17 @@ export default new Vuex.Store({
     addToCart(state, product){
       state.cart.push(product)
     },
+    
     addProduct(state, product){
       state.bdd.push(product)
-    }
+    },
+
+    makePurchase(state){
+      state.cart.forEach(item => {
+        state.bdd[item.id-1].existence-=item.quantity;
+      });
+      state.cart = []
+    },
   },
   
   //Actions
@@ -51,7 +59,6 @@ export default new Vuex.Store({
       let item = {...product[0] }
       item['quantity'] = product[1]
 
-      console.log(item);
       
       commit('addToCart', item)
     },
@@ -59,10 +66,14 @@ export default new Vuex.Store({
     addProduct({ commit }, product){
       let item = {...product}
       item['id'] = Object.keys(this.state.bdd).length+1
-      console.log(item);
       
       commit('addProduct', item)
-    }
+    },
+
+    buy({ commit }){
+      commit('makePurchase')
+    },
+
   },
 
   getters: {

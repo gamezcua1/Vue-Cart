@@ -25,11 +25,12 @@
     </tbody>
   </table>
 
+  <button class="btn btn-large btn-primary btn-block" style="margin-top: 50px" @click="buy">Buy</button>
 </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 import CartItem from '../components/CartItem'
 
 export default {
@@ -41,8 +42,8 @@ export default {
       'cart'
     ]) 
   },
-  mounted: function(){
-
+  methods: {
+    ...mapActions(['buy'])
   },
   components: {
     CartItem
